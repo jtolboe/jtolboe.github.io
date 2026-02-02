@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if page.title %}{{ page.title }} - {{ site.name }}{% elsif site.title %}{{ site.title }}{% else %}{{ site.name }}{% endif %}</title>
+    <meta/>
+    {% if site.robots.description %}<meta name="Description" content="{{ site.robots.description }}" />{% endif %}
+    {% if site.robots.keywords %}<meta name="Keywords" content="{{ site.robots.keywords }}" />{% endif %}
+    {% if site.robots.crawl %}<meta name="Robots" content="{{ site.robots.crawl }}" />{% endif %}
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if site.url %}<link rel="canonical" href="{{ site.url }}{{ page.url }}">{% endif %}
+    {% include analytics.html %}
+
+    <!-- favicons -->
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/favicons/book-open-solid-full.svg">
+
+    <!-- Stylesheets -->
+    {%- comment -%} Bootstrap should be the first stylesheet {%- endcomment %}
+    <link rel="stylesheet" type="text/css" crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB">
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/theme.css">
+    <link rel="stylesheet" type="text/css" crossorigin="anonymous"
+          href="https://use.fontawesome.com/releases/v7.1.0/css/all.css"
+          integrity="sha384-YgSbYtJcfPnMV/aJ0UdQk84ctht/ckX0MrfQwxOhw43RMBw2WSaDSMVh4gQwLdE4">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"> 
+</head>
+<body class="fullscreen-background">
+
+<div class="glass-pane">
+<div class="container fuse-core-content pb-4">
+
+{{ content }}
+
+</div>
+</div>
+
+<!-- JavaScript for particles -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
+
+{% if site.ga and site.ga.account %}
+<script>
+function trackOutboundLink(label, url) {
+    gtag('event', 'click', {
+        'event_category': 'outbound',
+        'event_label': label,
+        'transport_type': 'beacon',
+        'event_callback': function(){document.location = url;}
+    });
+}
+</script>
+{% endif %}
+
+</body>
+</html>

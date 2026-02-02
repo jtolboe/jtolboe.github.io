@@ -1,0 +1,218 @@
+---
+layout: projects-layout
+title: Projects
+permalink: /projects/
+---
+
+<!-- Project Grid View -->
+<div id="projects-grid" class="projects-page">
+    <!-- Back to Home Arrow -->
+    <div class="row mb-3">
+        <div class="col">
+            <a href="{{ '/' | relative_url }}" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-3">
+        <div class="col">
+            <h2 class="fw-light">Project Portfolio</h2>
+            <h5 class="fw-light">Hi, my name is Justin. I grew up in Utah Valley and attended Utah Valley University and Western Governors University, graduating with a BS in Network Engineering & Security. I love astronomy, music, reading, hiking, and exploring new technologies. Here you find find some past or current things that I have worked on.</h5>
+
+        </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        {% for project in site.projects %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="#" class="project-card-link" data-project="{{ forloop.index0 }}">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            {% if project.icon %}
+                                <i class="{{ project.icon }}"></i>
+                            {% else %}
+                                <i class="fa-solid fa-code"></i>
+                            {% endif %}
+                        </div>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                    </div>
+                    <p class="project-description">{{ project.description }}</p>
+                    {% if project.tags %}
+                    <div class="project-tags">
+                        {% for tag in project.tags %}
+                        <span class="project-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Separator and Footer Links -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <hr style="border-top: 2px solid #FCA311;">
+        </div>
+    </div>
+
+    <div class="row justify-content-center nav-links pt-3">
+        <div class="col-auto text-center">
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+            <span class="separator">|</span>
+            <a href="#">Resume</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center social-links pt-2 pb-4">
+    {% for hash in site.links %}{% for linkInfo in hash %}{% if linkInfo[1].show %}
+        <div class="col-auto px-2 px-sm-2 mt-2 text-center"><a
+            href="{{ linkInfo[1].href }}"{% if site.ga %}
+            onclick="trackOutboundLink('{{ linkInfo[1].name }}', '{{ linkInfo[1].href }}'); return false;"
+            {% endif %}><i class="{{ linkInfo[1].icon }}"></i>
+            <span class="d-inline d-sm-none">{{ linkInfo[1].name }}</span></a></div>
+    {% endif %}{% endfor %}{% endfor %}
+    </div>
+</div>
+
+<!-- Project Detail View (initially hidden) -->
+<div id="project-detail" class="project-detail-page" style="display: none;">
+    <div class="row mb-4">
+        <div class="col">
+            <a href="#" id="back-to-projects" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>Projects
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div class="project-detail-header">
+                <div id="detail-icon" class="project-detail-icon"></div>
+                <h1 id="detail-title" class="project-detail-title"></h1>
+            </div>
+            <p id="detail-description" class="project-detail-description"></p>
+            <div id="detail-tags" class="project-detail-tags"></div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div id="detail-links" class="project-links"></div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div id="detail-image"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div id="detail-content" class="project-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Project Data (JSON) -->
+<script>
+const projectsData = [
+    {% for project in site.projects %}
+    {
+        title: {{ project.title | jsonify }},
+        description: {{ project.description | jsonify }},
+        detail_description: {{ project.detail_description | jsonify }},
+        icon: {{ project.icon | jsonify }},
+        tags: {{ project.tags | jsonify }},
+        image: {{ project.image | jsonify }},
+        links: {{ project.links | jsonify }},
+        content: {{ project.content | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+];
+</script>
+
+<script>
+// Show project detail
+document.querySelectorAll('.project-card-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const projectIndex = parseInt(this.dataset.project);
+        showProjectDetail(projectIndex);
+    });
+});
+
+// Back to projects
+document.getElementById('back-to-projects').addEventListener('click', function(e) {
+    e.preventDefault();
+    showProjectsGrid();
+});
+
+function showProjectDetail(index) {
+    const project = projectsData[index];
+    
+    // Populate detail view
+    document.getElementById('detail-icon').innerHTML = project.icon ? 
+        `<i class="${project.icon}"></i>` : '';
+    document.getElementById('detail-title').textContent = project.title;
+    document.getElementById('detail-description').textContent = project.detail_description || project.description;
+    
+    // Tags
+    const tagsContainer = document.getElementById('detail-tags');
+    tagsContainer.innerHTML = '';
+    if (project.tags) {
+        project.tags.forEach(tag => {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'project-tag';
+            tagSpan.textContent = tag;
+            tagsContainer.appendChild(tagSpan);
+        });
+    }
+    
+    // Links
+    const linksContainer = document.getElementById('detail-links');
+    linksContainer.innerHTML = '';
+    if (project.links) {
+        project.links.forEach(link => {
+            const linkBtn = document.createElement('a');
+            linkBtn.href = link.url;
+            linkBtn.target = '_blank';
+            linkBtn.className = 'btn btn-outline-light me-2';
+            linkBtn.innerHTML = link.icon ? 
+                `<i class="${link.icon}"></i> ${link.text}` : link.text;
+            linksContainer.appendChild(linkBtn);
+        });
+    }
+    
+    // Image
+    const imageContainer = document.getElementById('detail-image');
+    imageContainer.innerHTML = '';
+    if (project.image) {
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.title;
+        img.className = 'project-detail-image';
+        imageContainer.appendChild(img);
+    }
+    
+    // Content
+    document.getElementById('detail-content').innerHTML = project.content;
+    
+    // Toggle views
+    document.getElementById('projects-grid').style.display = 'none';
+    document.getElementById('project-detail').style.display = 'block';
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showProjectsGrid() {
+    document.getElementById('project-detail').style.display = 'none';
+    document.getElementById('projects-grid').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>

@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<div class="project-detail-page">
+    <div class="row mb-4">
+        <div class="col">
+            <a href="{{ '/projects/' | relative_url }}" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col text-center">
+            {% if page.icon %}
+            <div class="project-detail-icon">
+                <i class="{{ page.icon }}"></i>
+            </div>
+            {% endif %}
+            <h1 class="project-detail-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="project-detail-description">{{ page.description }}</p>
+            {% endif %}
+            {% if page.tags %}
+            <div class="project-detail-tags">
+                {% for tag in page.tags %}
+                <span class="project-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if page.links %}
+    <div class="row mb-4 justify-content-center">
+        <div class="col-auto">
+            <div class="project-links">
+                {% for link in page.links %}
+                <a href="{{ link.url }}" target="_blank" class="btn btn-outline-light me-2">
+                    {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+                    {{ link.text }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col">
+            <div class="project-content">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>

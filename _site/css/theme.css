@@ -1,0 +1,376 @@
+/* ========= Color Palette ===================================================================== */
+/* ========= Base Styles ======================================================================= */
+html, body {
+  font-family: 'Open Sans',Arial,Helvetica,sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.fullscreen-background {
+  background: rgba(20, 33, 61, 0.95);
+}
+
+div.glass-pane {
+  background-color: rgba(20, 33, 61, 0.95);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+div.fuse-core-content {
+  color: #e7e7e7;
+}
+
+/* --------- Avatar ---------------------------------------------------------------------------- */
+#avatar {
+  height: 180px;
+  border-radius: 100%;
+  border: 5px solid #FCA311;
+}
+
+/* --------- Title / Subtitle ------------------------------------------------------------------ */
+h1 {
+  letter-spacing: 0.1em;
+  font-size: 3em;
+}
+@media (max-width: 575.98px) {
+  h1 {
+    /* used on bootstrap size 'xs' */
+    letter-spacing: 0;
+  }
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+/* --------- Navigation Links ----------------------------------------------------------------- */
+div.row.nav-links a {
+  color: #e7e7e7;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding: 0 10px;
+}
+div.row.nav-links a:hover {
+  text-decoration: underline;
+  color: #FCA311;
+}
+div.row.nav-links span.separator {
+  color: #eae4cb;
+  padding: 0 10px;
+}
+
+/* --------- Social Links ---------------------------------------------------------------------- */
+div.row.social-links > div {
+  white-space: nowrap;
+  padding: 0;
+}
+div.row.social-links a {
+  color: #e7e7e7;
+  border-radius: 100%;
+  border: 2px solid #e7e7e7;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1em;
+  overflow: hidden;
+}
+@media (max-width: 575.98px) {
+  div.row.social-links a {
+    /* used on bootstrap size 'xs' */
+    border-radius: 10px;
+    width: auto;
+  }
+}
+div.row.social-links a:hover {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  transition: 300ms;
+  background-color: #FCA311;
+  border-color: #FCA311;
+}
+div.row.social-links a > i {
+  display: inline-block;
+  margin: 8px 6px;
+}
+div.row.social-links a > span {
+  margin-right: 8px;
+}
+
+/* --------- Extra HTML ------------------------------------------------------------------------ */
+.fuse-core-extra {
+  color: #e7e7e7;
+}
+.fuse-core-extra a {
+  color: #e7e7e7;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.fuse-core-extra a:hover {
+  color: #000000;
+  text-decoration: none;
+  background-color: #FCA311;
+}
+
+/* --------- Projects Page --------------------------------------------------------------------- */
+.projects-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+}
+.projects-page h2 {
+  color: #e7e7e7;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+.projects-page p {
+  color: #eae4cb;
+  font-size: 1.1em;
+}
+.projects-page .back-link {
+  color: #FCA311;
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+.projects-page .back-link:hover {
+  color: #fdb643;
+}
+.projects-page .back-link i {
+  margin-right: 5px;
+}
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+.project-card-link:hover .project-card {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-card {
+  background: #14213D;
+  backdrop-filter: blur(10px);
+  border: 1px solid #FCA311;
+  border-radius: 3px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.project-card:hover {
+  background: #1e325c;
+  border-color: #FCA311;
+  box-shadow: 0 8px 30px rgba(252, 163, 17, 0.3);
+}
+.project-card:hover .project-icon {
+  color: #FCA311;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.project-icon {
+  font-size: 2em;
+  color: #e7e7e7;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #14213D;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+}
+
+.project-title {
+  color: #e7e7e7;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+
+.project-description {
+  color: #eae4cb;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.project-tag {
+  background: #14213D;
+  color: #e7e7e7;
+  border: 1px solid #eae4cb;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* --------- Project Detail Page -------------------------------------------------------------- */
+.project-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.project-detail-page .back-link {
+  color: #FCA311;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+.project-detail-page .back-link:hover {
+  color: #fdb643;
+}
+.project-detail-page .back-link i {
+  margin-right: 5px;
+}
+
+.project-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.project-detail-icon {
+  font-size: 1.5em;
+  color: #e7e7e7;
+  flex-shrink: 0;
+}
+
+.project-detail-title {
+  color: #e7e7e7;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.project-detail-description {
+  color: #eae4cb;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.project-detail-image {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  border: 1px solid #FCA311;
+}
+
+.project-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+.project-links .btn {
+  border: 2px solid #e7e7e7;
+  color: #e7e7e7;
+  background: transparent;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.project-links .btn:hover {
+  background: #FCA311;
+  color: #e7e7e7;
+  border-color: #e7e7e7;
+}
+
+.project-content {
+  color: #eae4cb;
+  line-height: 1.8;
+}
+.project-content h1, .project-content h2, .project-content h3, .project-content h4, .project-content h5, .project-content h6 {
+  color: #e7e7e7;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.project-content h2 {
+  font-size: 2em;
+  border-bottom: 2px solid #eae4cb;
+  padding-bottom: 10px;
+}
+.project-content h3 {
+  font-size: 1.5em;
+}
+.project-content p {
+  margin-bottom: 15px;
+}
+.project-content a {
+  color: #FCA311;
+  text-decoration: underline;
+}
+.project-content a:hover {
+  color: #FCA311;
+}
+.project-content ul, .project-content ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.project-content code {
+  background: #14213D;
+  color: #e7e7e7;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+.project-content pre {
+  background: #14213D;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #eae4cb;
+}
+.project-content pre code {
+  background: none;
+  padding: 0;
+}
+.project-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px solid #eae4cb;
+}

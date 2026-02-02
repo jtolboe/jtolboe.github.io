@@ -1,0 +1,100 @@
+markdown: kramdown
+permalink: pretty
+exclude: ['README.*', 'LICENSE.txt']
+sass:
+    style: expanded
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+
+# CAUTION
+# When modifying this file, take care to preserve the indentation. This is YAML ...
+
+# Main Headline, name required, subtitle optional
+name: Justin Tolboe 
+#subtitle:
+subtitle: 
+
+# Title attribute of HTML Page, uses 'name' from above if empty
+title: Justin Tolboe 
+
+# Information for web crawlers / Google, all of them optional
+# 'description' and 'keywords' simply set the corresponding meta tags,
+# 'crawl' is the 'Robots' tag http://www.robotstxt.org/meta.html
+robots:
+    description: One line of text describing the content of the page in less than 140 characters.
+    keywords: foo, bar, baz
+    crawl: index,follow
+
+# website address when deployed, also given as canonical link
+url: https://jtolboe.github.io
+
+# The 'baseurl' is prepended to all website-internal links.
+# 'baseurl' will often be '', but for a project page on gh-pages, it needs to be the project name.
+# If not empty, be careful to keep the leading slash, and don't add a slash at the end.
+baseurl: ''
+#baseurl: '/'
+
+# Enable Google Analytics. Leave empty (just "ga:" with subitems commented out) to disable.
+# In order to comply with EU cookie law, enable 'cookieconsent' to show a little popup asking users to acknowledge
+# the GA cookies. Also, some places require you to anonymize the users' IPs, which can be enabled via 'anonymizeip'
+# below. You normally want that. https://support.google.com/analytics/answer/2763052
+#ga:
+ga:
+    account: 'UA-120960520-1'
+    cookieconsent: true
+    anonymizeip: true
+
+# Plausible.io Analytics (alternative to Google Analytics that does not need cookies -> no cookie consent required)
+# A config setting is required in plausible to enable tracking of the outbound links. Details described here:
+# https://plausible.io/docs/outbound-link-click-tracking
+# Leave empty (just "plausible:" with subitems commented out) to disable.
+#plausible:
+plausible:
+    domain: 'jtolboe.github.io'
+
+
+# All the social media and other sites that we want to link to. The 'show' flag determines if the link is shown.
+# The order of this list controls the order of the links on the page. Feel free to add.
+links:
+  - linkedin:
+      name: LinkedIn
+      show: true
+      href: https://linkedin.com/in/justin-tolboe-25b9a3301/
+      icon: fa-brands fa-linkedin
+  - instagram:
+      name: Instagram
+      show: false
+      href: https://instagram.com/YOUR_INSTAGRAM_USERNAME
+      icon: fa-brands fa-instagram
+  - github:
+      name: GitHub
+      show: true
+      href: https://github.com/jtolboe
+      icon: fa-brands fa-github
+  - blog:
+      name: Blog
+      show: false
+      href: http://host.domain/your_blog
+      icon: fa-solid fa-book-open
+  - email:
+      name: Email
+      show: false
+      href: 
+      icon: fa-solid fa-envelope
+  - publickey:
+      name: PGP Key
+      show: false
+      href: https://pastebin.com/raw/YOUR_PUBLIC_KEY
+      icon: fa-solid fa-key
+
+
+# Extra HTML which will be displayed below the links. Keep it short. Leave empty to disable.
+#extra_html:
+extra_html:
+
+#EOF

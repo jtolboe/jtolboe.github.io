@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Justin Tolboe</title>
+    <meta/>
+    <meta name="Description" content="One line of text describing the content of the page in less than 140 characters." />
+    <meta name="Keywords" content="foo, bar, baz" />
+    <meta name="Robots" content="index,follow" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="http://localhost:4000">
+    
+    <!-- Google Analytics -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-120960520-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script>
+        var trackOutboundLink = function(targetName, targetUrl) {
+            if (ga.loaded) {
+                ga('send', 'event', 'outbound', 'click', targetName, {
+                    'transport': 'beacon',
+                    'hitCallback': function(){ document.location = targetUrl; }
+                });
+            } else {
+                document.location = targetUrl;
+            }
+        }
+    </script>
+    <script async defer data-domain="jtolboe.github.io" src="https://plausible.io/js/plausible.outbound-links.js"></script>
+
+    <!-- favicons -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicons/book-open-solid-full.svg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB">
+    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+    <link rel="stylesheet" type="text/css" crossorigin="anonymous"
+          href="https://use.fontawesome.com/releases/v7.1.0/css/all.css"
+          integrity="sha384-YgSbYtJcfPnMV/aJ0UdQk84ctht/ckX0MrfQwxOhw43RMBw2WSaDSMVh4gQwLdE4">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"> 
+</head>
+<body class="fullscreen-background">
+
+<div class="glass-pane">
+<div class="container fuse-core-content pb-4">
+
+<div class="row">
+    <div class="col">
+        <h1 class="text-center fw-bold">Justin Tolboe</h1>
+        
+    </div>
+</div>
+
+<div class="row justify-content-center nav-links pt-3 pt-sm-4">
+    <div class="col-auto text-center">
+        <a href="/projects/">Projects</a>
+        <span class="separator">|</span>
+        <a href="/blog/">Blog</a>
+        <span class="separator">|</span>
+        <a href="#">Resume</a>
+    </div>
+</div>
+
+<div class="row justify-content-center social-links pt-2 pt-sm-3">
+
+    <div class="col-auto px-2 px-sm-2 mt-2 text-center"><a
+        href="https://linkedin.com/in/justin-tolboe-25b9a3301/"
+        onclick="trackOutboundLink('LinkedIn', 'https://linkedin.com/in/justin-tolboe-25b9a3301/'); return false;"
+        ><i class="fa-brands fa-linkedin"></i>
+        <span class="d-inline d-sm-none">LinkedIn</span></a></div>
+
+    <div class="col-auto px-2 px-sm-2 mt-2 text-center"><a
+        href="https://github.com/jtolboe"
+        onclick="trackOutboundLink('GitHub', 'https://github.com/jtolboe'); return false;"
+        ><i class="fa-brands fa-github"></i>
+        <span class="d-inline d-sm-none">GitHub</span></a></div>
+
+</div>
+
+
+
+</div>
+</div>
+
+</body>
+</html>
